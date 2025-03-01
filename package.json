@@ -15,7 +15,7 @@
     "lint": "eslint",
     "changeset": "changeset add",
     "version": "changeset version",
-    "publish": "bun run build && bun run lint && bun run version && CI=true changeset publish",
+    "publish": "bun run build && bun run lint && bun run version && CI=true changeset publish && git push --follow-tags",
     "open:git": "open-cli https://github.com/yev-ai/pulumi",
     "open:npm": "open-cli https://www.npmjs.com/package/@yevai/pulumi"
   },
