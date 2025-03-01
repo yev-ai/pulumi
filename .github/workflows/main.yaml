@@ -23,4 +23,4 @@ jobs:
       - name: Install
         run: bun install
       - name: Build, Lint, Publish
-        run: bun run publish
+        run: bun run ci:publish

@@ -13,10 +13,8 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint",
-    "changeset": "changeset add",
-    "version": "changeset version",
-    "ci:publish": "changeset publish",
-    "cicd": "bun run build && bun run lint && bun run version && changeset publish && git push --follow-tags",
+    "pr": "changeset add",
+    "ci:publish": "bun run build && bun run lint && changeset version && changeset publish && git push --follow-tags",
     "open:git": "open-cli https://github.com/yev-ai/pulumi",
     "open:npm": "open-cli https://www.npmjs.com/package/@yevai/pulumi"
   },
