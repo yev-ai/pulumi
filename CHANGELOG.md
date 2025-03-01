@@ -1,5 +1,11 @@
 # @yevai/pulumi
 
+## 0.0.18
+
+### Patch Changes
+
+- 8b47e4d: preparing for development
+
 ## 0.0.17
 
 ### Patch Changes
