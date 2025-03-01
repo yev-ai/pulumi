@@ -4,14 +4,32 @@ on:
     branches: [main]
 jobs:
   release:
+    if: github.event.head_commit.author.name != 'GitHub Actions'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      # - name: Create Release PR or Publish
-      #   uses: changesets/action@v1
-      #   with:
-      #     publish: bun run publish
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "devops@yev.ai"
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install
+        run: bun install
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Build
+        run: bun run build
+
+      - name: Publish
+        uses: changesets/action@v1
+        with:
+          publish: bun run publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

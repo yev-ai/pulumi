@@ -4,4 +4,11 @@ Hi everyone, we're giving open source a shot! This package will be slowly popula
 
 # Requirements
 
-To keep the package light, we've steered away from hard dependencies. You will need @pulumi/pulumi v3.0.0 or higher installed to use this. @pulumi/aws, @pulumi/azure, @pulumi/gcp, and @pulumi/cloudflare are marked as optional but you will need to install them yourself if you plan to use the relevant constructs.
+To keep the package light, we've steered away from hard dependencies. You will need:
+
+- [@pulumi/pulumi](https://www.npmjs.com/package/@pulumi/pulumi) v3.0.0 or higher installed.
+- To use the relevant constructs, you'll also need:
+  - [@pulumi/aws](https://www.npmjs.com/package/@pulumi/aws)
+  - [@pulumi/azure](https://www.npmjs.com/package/@pulumi/azure)
+  - [@pulumi/gcp](https://www.npmjs.com/package/@pulumi/gcp)
+  - [@pulumi/cloudflare](https://www.npmjs.com/package/@pulumi/cloudflare)

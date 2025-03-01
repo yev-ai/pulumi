@@ -12,10 +12,10 @@
   ],
   "scripts": {
     "build": "tsup",
-    "changeset": "changeset",
+    "changeset": "changeset add",
     "version": "changeset version",
     "publish": "changeset publish",
-    "lint:fix": "eslint --fix",
+    "lint": "eslint",
     "open": "open-cli https://github.com/yev-ai/pulumi"
   },
   "license": "Elastic License 2.0",

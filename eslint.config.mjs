@@ -4,6 +4,7 @@ import prettierPlugin from 'eslint-plugin-prettier';
 
 export default [
   {
+    files: ['src/**/*.{ts,json}'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
