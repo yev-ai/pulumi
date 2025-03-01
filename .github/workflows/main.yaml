@@ -2,6 +2,8 @@ name: Release
 on:
   push:
     branches: [main]
+permissions:
+  contents: write
 jobs:
   release:
     if: github.event.head_commit.author.name != 'GitHub Actions'
@@ -33,3 +35,4 @@ jobs:
           publish: bun run publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
