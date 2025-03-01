@@ -14,9 +14,10 @@
     "build": "tsup",
     "changeset": "changeset add",
     "version": "changeset version",
-    "publish": "changeset publish",
+    "publish": "changeset publish --direct",
     "lint": "eslint",
-    "open": "open-cli https://github.com/yev-ai/pulumi"
+    "open:git": "open-cli https://github.com/yev-ai/pulumi",
+    "open:npm": "open-cli https://www.npmjs.com/package/@yevai/pulumi"
   },
   "license": "Elastic License 2.0",
   "author": "Yevai Inc. <devops@yev.ai> (https://yev.ai)",
