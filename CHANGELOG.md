@@ -1,5 +1,11 @@
 # @yevai/pulumi
 
+## 0.0.15
+
+### Patch Changes
+
+- c89a91c: test 6
+
 ## 0.0.14
 
 ### Patch Changes

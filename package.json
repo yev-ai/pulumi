@@ -1,6 +1,6 @@
 {
   "name": "@yevai/pulumi",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Yevai Inc. open source Pulumi Typescript library",
   "types": "dist/index.d.ts",
   "module": "dist/index.mjs",
@@ -15,7 +15,8 @@
     "lint": "eslint",
     "changeset": "changeset add",
     "version": "changeset version",
-    "publish": "bun run build && bun run lint && bun run version && changeset publish && git push --follow-tags",
+    "publish": "changeset publish",
+    "cicd": "bun run build && bun run lint && bun run version && changeset publish && git push --follow-tags",
     "open:git": "open-cli https://github.com/yev-ai/pulumi",
     "open:npm": "open-cli https://www.npmjs.com/package/@yevai/pulumi"
   },
