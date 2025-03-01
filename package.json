@@ -12,10 +12,10 @@
   ],
   "scripts": {
     "build": "tsup",
+    "lint": "eslint",
     "changeset": "changeset add",
     "version": "changeset version",
-    "lint": "eslint",
-    "publish": "bun run build && bun run lint && changeset publish",
+    "publish": "bun run build && bun run lint && bun run version && changeset publish",
     "open:git": "open-cli https://github.com/yev-ai/pulumi",
     "open:npm": "open-cli https://www.npmjs.com/package/@yevai/pulumi"
   },
