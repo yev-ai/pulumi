@@ -1,5 +1,11 @@
 # @yevai/pulumi
 
+## 0.0.16
+
+### Patch Changes
+
+- d8626c0: test 8
+
 ## 0.0.15
 
 ### Patch Changes
