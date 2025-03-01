@@ -1,5 +1,12 @@
 # @yevai/pulumi
 
+## 0.0.13
+
+### Patch Changes
+
+- 0a109f8: cicd test
+- 757de90: test 4
+
 ## 0.0.11
 
 ### Patch Changes
