@@ -14,23 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Configure Git
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "devops@yev.ai"
-
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
-
       - name: Install
         run: bun install
-
       - name: Build, Lint, Publish
         run: bun run publish
-
-      - name: Commit, Push & Tag Changes
-        run: |
-          git add .
-          git commit -m "Versioning packages."
-          git push --follow-tags
