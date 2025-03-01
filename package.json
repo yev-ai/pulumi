@@ -1,0 +1,92 @@
+{
+  "name": "@yevai/pulumi",
+  "version": "0.0.1",
+  "description": "Yevai Inc. open source Pulumi Typescript library",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "publish": "changeset publish",
+    "lint:fix": "eslint --fix",
+    "open": "open-cli https://github.com/yev-ai/pulumi"
+  },
+  "license": "Elastic License 2.0",
+  "author": "Yevai Inc. <devops@yev.ai> (https://yev.ai)",
+  "homepage": "https://github.com/yev-ai/pulumi#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yev-ai/pulumi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yev-ai/pulumi/issues"
+  },
+  "contributors": [
+    "Yevgen Reztsov <yevgen@yev.ai>"
+  ],
+  "licenses": [
+    {
+      "type": "Elastic License 2.0",
+      "url": "https://www.elastic.co/licensing/elastic-license"
+    }
+  ],
+  "keywords": [
+    "pulumi",
+    "typescript",
+    "infrastructure"
+  ],
+  "devDependencies": {
+    "@changesets/cli": "^2.28.1",
+    "@pulumi/aws": "^6.70.0",
+    "@pulumi/azure": "^5.89.0",
+    "@pulumi/cloudflare": "^5.49.1",
+    "@pulumi/gcp": "^7.38.0",
+    "@pulumi/pulumi": "^3.153.1",
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "open-cli": "^8.0.0",
+    "prettier": "^3.5.2",
+    "tsup": "^8.4.0"
+  },
+  "peerDependencies": {
+    "@pulumi/pulumi": "^3.0.0",
+    "@pulumi/aws": "^6.0.0",
+    "@pulumi/azure": "^5.0.0",
+    "@pulumi/gcp": "^7.0.0",
+    "@pulumi/cloudflare": "^5.0.0",
+    "typescript": "^5"
+  },
+  "peerDependenciesMeta": {
+    "@pulumi/aws": {
+      "optional": true
+    },
+    "@pulumi/azure": {
+      "optional": true
+    },
+    "@pulumi/gcp": {
+      "optional": true
+    },
+    "@pulumi/cloudflare": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "bun": ">=1.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

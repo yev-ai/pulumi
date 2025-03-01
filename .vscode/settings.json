@@ -1,0 +1,35 @@
+{
+  "typescript.tsserver.useSyntaxServer": "auto",
+  "typescript.tsserver.maxTsServerMemory": 8192,
+  "github.copilot.enable": {
+    "typescript": true,
+    "typescriptreact": true
+  },
+  "github.copilot.advanced": {
+    "indentationMode": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js,${capture}.d.ts,${capture}.test.ts",
+    "*.tsx": "${capture}.css,${capture}.test.tsx,${capture}.stories.tsx",
+    "package.json": "package-lock.json,yarn.lock,bun.lockb",
+    "tsconfig.json": "tsconfig.*.json"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "json.format.enable": false,
+  "editor.suggest.preview": true,
+  "editor.suggest.showStatusBar": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "terminal.integrated.gpuAcceleration": "on",
+  "diffEditor.renderSideBySide": false
+}
