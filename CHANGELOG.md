@@ -1,5 +1,11 @@
 # @yevai/pulumi
 
+## 0.1.0
+
+### Minor Changes
+
+- 617120f: dev features and aws bastion for beginners
+
 ## 0.0.18
 
 ### Patch Changes
