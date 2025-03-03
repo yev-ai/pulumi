@@ -1,4 +1,6 @@
 import { Output, interpolate } from '@pulumi/pulumi';
+// TODO refactor out all the common things and break this down to be reasonable.
+
 /**
  * Generates user data script for Amazon Linux 2 EC2 instances with VNC server setup.
  * The script performs the following operations:
@@ -80,11 +82,11 @@ EOL
 chmod +x /home/ec2-user/.vnc/xstartup
 chown ec2-user:ec2-user /home/ec2-user/.vnc/xstartup
 
-mkdir -p /home/ubuntu/.config/xfce4
-cat > /home/ubuntu/.config/xfce4/helpers.rc << 'EOF'
+mkdir -p /home/ec2-user/.config/xfce4
+cat > /home/ec2-user/.config/xfce4/helpers.rc << 'EOF'
 WebBrowser=firefox
 EOF
-chown -R ubuntu:ubuntu /home/ubuntu/.config
+chown -R ec2-user:ec2-user /home/ec2-user/.config
 
 cat > /etc/systemd/system/vncserver@.service << 'EOL'
 [Unit]
