@@ -1,5 +1,11 @@
 # @yevai/pulumi
 
+## 0.1.1
+
+### Patch Changes
+
+- 44b0eaa: al2 userData update
+
 ## 0.1.0
 
 ### Minor Changes
