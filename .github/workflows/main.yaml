@@ -20,7 +20,13 @@ jobs:
           git config --global user.email "devops@yev.ai"
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
-      - name: Install
-        run: bun install
-      - name: Build, Lint, Publish
-        run: bun run ci:publish
+      - name: Prepare
+        run: |
+          bun install
+          bun run build
+          bun run lint
+          bun run change:ver
+      - name: Publish
+        run: bun run change:pub
+      - name: Push Tags
+        run: git push --follow-tags

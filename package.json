@@ -4,7 +4,7 @@
   "description": "Yevai Inc. open source Pulumi Typescript library",
   "types": "dist/index.d.ts",
   "module": "dist/index.mjs",
-  "main": "dist/index.js",
+  "main": "dist/index.mjs",
   "type": "module",
   "files": [
     "dist",
@@ -13,10 +13,11 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint",
+    "dev": "./.devmode.sh",
     "change:pr": "changeset add",
     "change:ver": "changeset version",
     "change:pub": "changeset publish",
-    "ci:publish": "bun run build && bun run lint && bun run change:ver && bun run change:pub && git push --follow-tags",
+    "prepublishOnly": "bun run build",
     "open:git": "open-cli https://github.com/yev-ai/pulumi",
     "open:npm": "open-cli https://www.npmjs.com/package/@yevai/pulumi"
   },
@@ -47,10 +48,12 @@
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
     "@pulumi/aws": "^6.70.0",
+    "@pulumi/awsx": "^2.21.0",
     "@pulumi/azure": "^5.89.0",
     "@pulumi/cloudflare": "^5.49.1",
     "@pulumi/gcp": "^7.38.0",
     "@pulumi/pulumi": "^3.153.1",
+    "@pulumi/random": "^4.18.0",
     "@types/bun": "latest",
     "@typescript-eslint/eslint-plugin": "^8.25.0",
     "@typescript-eslint/parser": "^8.25.0",
@@ -58,20 +61,29 @@
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.3",
+    "nodemon": "^3.1.9",
     "open-cli": "^8.0.0",
     "prettier": "^3.5.2",
     "tsup": "^8.4.0"
   },
   "peerDependencies": {
-    "@pulumi/pulumi": "^3.0.0",
     "@pulumi/aws": "^6.0.0",
+    "@pulumi/awsx": "^2.0.0",
     "@pulumi/azure": "^5.0.0",
-    "@pulumi/gcp": "^7.0.0",
     "@pulumi/cloudflare": "^5.0.0",
+    "@pulumi/gcp": "^7.0.0",
+    "@pulumi/pulumi": "^3.0.0",
+    "@pulumi/random": "^4.0.0",
     "typescript": "^5"
   },
   "peerDependenciesMeta": {
     "@pulumi/aws": {
+      "optional": true
+    },
+    "@pulumi/random": {
+      "optional": true
+    },
+    "@pulumi/awsx": {
       "optional": true
     },
     "@pulumi/azure": {

@@ -1,0 +1,25 @@
+{
+  "name": "@yevai/pulumi-examples",
+  "version": "1.0.0",
+  "description": "Examples for using @yevai/pulumi",
+  "main": "index.ts",
+  "private": true,
+  "scripts": {
+    "start": "ts-node-esm index.ts"
+  },
+  "dependencies": {
+    "@yevai/pulumi": "latest",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@pulumi/aws": "^6.70.0",
+    "@pulumi/awsx": "^2.21.0",
+    "@pulumi/azure": "^5.89.0",
+    "@pulumi/cloudflare": "^5.49.1",
+    "@pulumi/gcp": "^7.38.0",
+    "@pulumi/pulumi": "^3.153.1",
+    "@pulumi/random": "^4.18.0",
+    "bun-types": "latest",
+    "typescript": "latest"
+  }
+}

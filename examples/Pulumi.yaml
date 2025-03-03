@@ -1,0 +1,7 @@
+name: yevai-pulumi-demo
+description: DevOps for beginners.
+main: ./aws-ec2-bastion/index.ts
+runtime:
+  name: nodejs
+  options:
+    typescript: true

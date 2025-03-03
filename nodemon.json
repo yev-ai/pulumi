@@ -1,0 +1,10 @@
+{
+  "watch": ["src", "src/.utils"],
+  "ignore": [],
+  "ext": "ts",
+  "quiet": false,
+  "exec": "bun run .devmode.ts",
+  "watchOptions": {
+    "dot": true
+  }
+}

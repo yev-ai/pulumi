@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@utils": ["src/.utils/index.ts"],
+      "@utils-aws": ["src/.utils/aws/index.ts"]
+    },
     // Enable latest features
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
@@ -42,6 +48,6 @@
     // Modern class fields behavior
     "useDefineForClassFields": true
   },
-  "include": ["src"],
+  "include": ["src", "src/.utils/types.ts"],
   "exclude": ["node_modules"]
 }
