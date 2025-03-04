@@ -1,3 +1,7 @@
+![example workflow](https://github.com/yev-ai/pulumi/actions/workflows/main.yaml/badge.svg)&nbsp; [![GitHub issues](https://img.shields.io/github/issues/yev-ai/pulumi.svg)](https://github.com/yev-ai/pulumi/issues)&nbsp; ![npm version](https://img.shields.io/npm/v/@yevai/pulumi.svg)
+
+[![NPM Download Stats](https://nodei.co/npm/@yevai/pulumi.png?downloads=true)](https://www.npmjs.com/package/@yevai/pulumi)
+
 # Pulumi Starter Kit
 
 Hi everyone, we're giving open source a shot! This package will be slowly populated. For now, it's being published for some of my [substack guide blog posts](https://www.yevelations.com/).
