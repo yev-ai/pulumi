@@ -1,0 +1,104 @@
+mesh_network:
+  flags:
+    ip_addresses: EXTERNAL
+    duration: 60
+    iterations: 3
+  vm_groups:
+    default:
+      vm_count: 0
+    aws_1a:
+      cloud: AWS
+      vm_count: 1
+      vm_spec:
+        AWS:
+          assign_external_ip: true
+          machine_type: m5.large
+          zone: us-east-1a
+    aws_1b:
+      cloud: AWS
+      vm_count: 1
+      vm_spec:
+        AWS:
+          assign_external_ip: true
+          machine_type: m5.large
+          zone: us-east-1b
+    aws_1c:
+      cloud: AWS
+      vm_count: 1
+      vm_spec:
+        AWS:
+          assign_external_ip: true
+          machine_type: m5.large
+          zone: us-east-1c
+    aws_1d:
+      cloud: AWS
+      vm_count: 1
+      vm_spec:
+        AWS:
+          assign_external_ip: true
+          machine_type: m5.large
+          zone: us-east-1d
+    aws_1e:
+      cloud: AWS
+      vm_count: 1
+      vm_spec:
+        AWS:
+          assign_external_ip: true
+          machine_type: m5.large
+          zone: us-east-1e
+    aws_1f:
+      cloud: AWS
+      vm_count: 1
+      vm_spec:
+        AWS:
+          assign_external_ip: true
+          machine_type: m5.large
+          zone: us-east-1f
+    gcp_4a:
+      cloud: GCP
+      vm_count: 1
+      vm_spec:
+        GCP:
+          assign_external_ip: true
+          machine_type: n2-standard-2
+          zone: us-east4-a
+    gcp_4b:
+      cloud: GCP
+      vm_count: 1
+      vm_spec:
+        GCP:
+          assign_external_ip: true
+          machine_type: n2-standard-2
+          zone: us-east4-b
+    gcp_4c:
+      cloud: GCP
+      vm_count: 1
+      vm_spec:
+        GCP:
+          assign_external_ip: true
+          machine_type: n2-standard-2
+          zone: us-east4-c
+    azure_1:
+      cloud: Azure
+      vm_count: 1
+      vm_spec:
+        Azure:
+          use_public_ip: true
+          machine_type: Standard_D2ads_v6
+          zone: eastus-1
+    azure_2:
+      cloud: Azure
+      vm_count: 1
+      vm_spec:
+        Azure:
+          use_public_ip: true
+          machine_type: Standard_D2ads_v6
+          zone: eastus-2
+    azure_3:
+      cloud: Azure
+      vm_count: 1
+      vm_spec:
+        Azure:
+          use_public_ip: true
+          machine_type: Standard_D2ads_v6
+          zone: eastus-3
