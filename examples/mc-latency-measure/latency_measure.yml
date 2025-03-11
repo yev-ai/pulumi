@@ -83,7 +83,7 @@ mesh_network:
       vm_count: 1
       vm_spec:
         Azure:
-          use_public_ip: true
+          assign_external_ip: true
           machine_type: Standard_D2ads_v6
           zone: eastus-1
     azure_2:
@@ -91,7 +91,7 @@ mesh_network:
       vm_count: 1
       vm_spec:
         Azure:
-          use_public_ip: true
+          assign_external_ip: true
           machine_type: Standard_D2ads_v6
           zone: eastus-2
     azure_3:
@@ -99,6 +99,6 @@ mesh_network:
       vm_count: 1
       vm_spec:
         Azure:
-          use_public_ip: true
+          assign_external_ip: true
           machine_type: Standard_D2ads_v6
           zone: eastus-3
