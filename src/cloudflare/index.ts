@@ -28,3 +28,5 @@ export const getRootCloudflareZone: PulumiMethod<
   };
   return { finishedOn: { ...outputZone }, result: { ...outputZone }, zoneId: zone.then((zone) => zone.zoneId) };
 };
+
+export * from './ZeroTrustTunnelRoute';
