@@ -44,53 +44,24 @@ As always, the primary design goal for this implementation is beginner-friendlin
 
   - Once that's done, your cloudflare provider automagically pulls it from ESC! No insecure local key storage :)
 
-## First Run
+## Setup
 
-When you first run 'pulumi up', you will see output similar to this:
-
-```
-     Type                             Name                                Plan
- +   pulumi:pulumi:Stack              yevai-pulumi-demo-example           create
- +   ├─ awsx:ec2:DefaultVpc           defaultVpc                          create
- +   ├─ random:index:RandomPassword   bastionInstanceName-password        create
- +   ├─ aws:iam:Role                  bastionInstanceName-ssm-role        create
- +   ├─ aws:iam:RolePolicyAttachment  bastionInstanceName-ssm-attachment  create
- +   ├─ aws:iam:InstanceProfile       bastionInstanceName-ssm-profile     create
- +   ├─ aws:ec2:SecurityGroup         bastionInstanceName-sg              create
- +   └─ aws:ec2:Instance              bastionInstanceName-bastion         create
-
-Outputs:
-    bastionInstances: {
-        bastionInstanceName: {
-            encodedCommand: output<string>
-            runCommand    : "pulumi stack output bastionInstances --stack yai/yevai-pulumi-demo/example --show-secrets | jq -r '.bastionInstanceName.encodedCommand' | base64 --decode | bash"
-        }
-    }
-    defaultVpcId    : "vpc-02bbb35b05e179bed"
-```
-
-Your run script and credentials are securely saved as a stack output secret. When you run this command from the output:
+Set the following line in "examples/Pulumi.yaml" :
 
 ```
-pulumi stack output bastionInstances --stack yai/yevai-pulumi-demo/example --show-secrets | jq -r '.bastionInstanceName.encodedCommand' | base64 --decode | bash
+main: ./cloudflare-proxy/index.ts
 ```
 
-You can share the above command with your teammates. Anyone with access to the stack output and AWS SSM in the proper account can use it! You will see something like:
+TODO - meat n taters here
 
-```
-Using port 5901
-Instance ID: i-0f015c431b1044000
-Connect URL: https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#ConnectToInstance:instanceId=i-0f015c431b1044000
-Username: ec2-user
-Password: 0b480tF9ohUmkWvBzkCm1IEwOS6dB000
+## Background
 
-Starting session with SessionId: your-aws-user-l98gpl3xbfaq2aapkqn8pvq000
-Port 5901 opened for sessionId your-aws-userl98gpl3xbfaq2aapkqn8pvq000.
-Waiting for connections...
-```
+This is a minimally viable infra example. You'll get 3-10ms latency, 1000+RPS, and 300-700Mbps burst.
 
-You can see your bastion setting up via Serial Console if you open the "Connect URL".
+It is also designed to not make you blow your 401K if you forget to turn an EC2 instance off.
 
-Once ready, connect VNC to "localhost:5901" and log in with the password above.
+Total cost in this example's configuration: $25/mo.
 
-Done! **IMPORTANT**: Run "pulumi destroy" to shut down your EC2 instance.
+## Execution
+
+Run "pulumi up" from terminal in "/examples", wait 3-10 minutes, done!
