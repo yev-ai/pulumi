@@ -1,3 +1,3 @@
 export const testCloudflareFunction = () => {
-  console.log('Hello from CloudFlare v0.0.7');
+  console.log('Aight, lets get it poppin');
 };
