@@ -6,13 +6,19 @@ As always, the primary design goal for this implementation is beginner-friendlin
 
 - On top of the requirements in the top-level README.md:
 
+  - Fully set up GCP account - [guide here](https://www.pulumi.com/docs/iac/get-started/gcp/)
+  - Fully set up AWS account - [guide here](https://www.pulumi.com/docs/iac/get-started/aws/)
+  - Fully set up Azure account - [guide here](https://www.pulumi.com/docs/iac/get-started/azure/)
+    - of note here, you'll want to set "values.pulumiConfig['gcp:project:] to your GCP project in [ESC](https://www.pulumi.com/product/secrets-management/). See example below!
   - Fully set up cloudflare account and API key. I suggest [Pulumi ESC](https://www.pulumi.com/docs/esc/) for storing these kinds of things. Like this:
 
   ```
   // URL: https://app.pulumi.com/[ORG]/esc/[PROJECT]/[STACK]
-  // In the pretty UI configuration, what you want to do is:
+
   values:
     pulumiConfig:
+      gcp:project: [YOUR_GCP_PROJECT]
+      [YOUR_PULUMI_PROJECT]:cloudflareAccountId: [CF_ACCOUNT_ID] //Important!
       cloudflare:email: [YOUR_EMAIL]
       cloudflare:apiKey:
         fn::secret:
@@ -23,21 +29,22 @@ As always, the primary design goal for this implementation is beginner-friendlin
   - Next, you'll want to link that ESC environment to your stack, like so in Pulumi.yaml:
 
   ```
-  name: [YOUR_NAME]
+  name: [PROJECT_NAME]
     description: DESC_HERE
     runtime:
     name: nodejs
     options:
       typescript: true
     environment:
-      - ESC_ENV_HERE.
+      - [ESC_ENV_HERE]
 
-    // Example:
-    // URL of "https://app.pulumi.com/[ORG]/esc/[PROJECT]/[STACK]" maps to:
+    // A URL of "https://app.pulumi.com/[ORG]/esc/[PROJECT]/[STACK]" maps to:
+
     environment:
-    - PROJECT/STACK.
+    - [PROJECT]/[STACK].
 
-    // If your URL was: https://app.pulumi.com/foo/esc/bar/baz, you'd have:
+    // If your ESC URL was: https://app.pulumi.com/foo/esc/bar/baz, you'd set:
+
     environment:
     - bar/baz
   ```
