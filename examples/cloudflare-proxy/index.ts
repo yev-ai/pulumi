@@ -114,3 +114,21 @@ const dnsRecords = CLOUD_PROVIDERS.reduce(
   }),
   {} as Record<CloudProvider, cloudflare.Record>,
 );
+
+// TODO fml, now I have to come up with the actual proxy VM configs and userdata. yikes
+
+// infra outline
+// - we need to place these geographically, which AWS does not make easy. that'll be fun.
+// - I think for AWS we did this by combining an AZ subzone with a geo-selected subnet.
+// - Azure has no default vpc at all so we'll need RGs, NIC, and subnets too
+// - GCP networking is all fucked up so we'll need a subset selective ingress firewall...
+
+// the instances
+// 1) find the same AMI and reuse the same user data for all 3 cloud providers
+// that's probably going to be ubuntu server lts since its ami-optimized
+// skip the pain of building per-cloud from alpine scratch for a demo
+// mm we probably just want unzip nginx cflare htop for deps? i think.
+// skip the pain of AWS PS, GCP SM and Azure key vault for demo; userdata ezbake
+// i should be able to get the cf tunnel token digests out of somewhere here
+// tldr cant use any of my internal code or libraries. rip, bak 2 basics
+// i think this gon be a sysctl, systemd and nginx kinda rodeo. lmaooooo
