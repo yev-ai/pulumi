@@ -9,8 +9,9 @@ As always, the primary design goal for this implementation is beginner-friendlin
   - Fully set up GCP account - [guide here](https://www.pulumi.com/docs/iac/get-started/gcp/)
   - Fully set up AWS account - [guide here](https://www.pulumi.com/docs/iac/get-started/aws/)
   - Fully set up Azure account - [guide here](https://www.pulumi.com/docs/iac/get-started/azure/)
-    - of note here, you'll want to set "values.pulumiConfig['gcp:project:] to your GCP project in [ESC](https://www.pulumi.com/product/secrets-management/). See example below!
-  - Fully set up cloudflare account and API key. I suggest [Pulumi ESC](https://www.pulumi.com/docs/esc/) for storing these kinds of things. Like this:
+    - Set "values.pulumiConfig['gcp:project:] to your GCP project in [ESC](https://www.pulumi.com/product/secrets-management/). See example below!
+  - Fully set up cloudflare account and API key. I suggest [Pulumi ESC](https://www.pulumi.com/docs/esc/) for storing these kinds of things. See below.
+    - The TLD we're doing this needs to be on the $20/mo Pro plan. This is the cost of one ALB in one cloud.
 
   ```
   // URL: https://app.pulumi.com/[ORG]/esc/[PROJECT]/[STACK]
@@ -19,6 +20,7 @@ As always, the primary design goal for this implementation is beginner-friendlin
     pulumiConfig:
       gcp:project: [YOUR_GCP_PROJECT]
       [YOUR_PULUMI_PROJECT]:cloudflareAccountId: [CF_ACCOUNT_ID] //Important!
+      [YOUR_PULUMI_PROJECT]:cloudflareRootTldZone: [NON_FQDN_ZONE]
       cloudflare:email: [YOUR_EMAIL]
       cloudflare:apiKey:
         fn::secret:
