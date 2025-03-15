@@ -1,3 +1,2 @@
-export const testAzureFunction = () => {
-  console.log('Hello from Azure');
-};
+export * from './core/ResourceGroup';
+export * from './network';

@@ -1,6 +1,6 @@
 import * as cloudflare from '@pulumi/cloudflare';
 import * as pulumi from '@pulumi/pulumi';
-import { createTunnelWithRoute } from '@yevai/pulumi';
+import { createAzureVpc, createTunnelWithRoute } from '@yevai/pulumi';
 
 const config = new pulumi.Config();
 
@@ -115,16 +115,26 @@ const dnsRecords = CLOUD_PROVIDERS.reduce(
   {} as Record<CloudProvider, cloudflare.Record>,
 );
 
-// TODO fml, now I have to come up with the actual proxy VM configs and userdata. yikes
+/**
+ * Creates an Azure Virtual Private Cloud (VPC) for the Cloudflare proxy example
+ *
+ * Uses 10.0.0.0/16 CIDR for the VPC, which provides 65,536 IP addresses - this is
+ * a standard private IP range that offers plenty of addresses for a tutorial environment
+ * without being excessive. This creates simple but secure (in the sense that our instance
+ * can't be directly accessed via its external IP) "enough" defaults. Least access is later.
+ *
+ * The subnet uses 10.0.1.0/24, providing 256 IP addresses within the VPC, which is
+ * sufficient for our purposes and maintains an easily understandable network layout.
+ */
+const azureVpc = createAzureVpc('azu-vpc', 'eastus', ['10.0.0.0/16'], ['10.0.1.0/24'], false);
 
-// infra outline
-// - we need to place these geographically, which AWS does not make easy. that'll be fun.
-// - I think for AWS we did this by combining an AZ subzone with a geo-selected subnet.
-// - Azure has no default vpc at all so we'll need RGs, NIC, and subnets too
-// - GCP networking is all fucked up so we'll need a subset selective ingress firewall...
+// TODO
 
-// the instances
-// 1) find the same AMI and reuse the same user data for all 3 cloud providers
+// infra
+// - Azure done. AWS wip. todo gcp
+
+// instances
+// find the same AMI and reuse the same user data for all 3 cloud providers
 // that's probably going to be ubuntu server lts since its ami-optimized
 // skip the pain of building per-cloud from alpine scratch for a demo
 // mm we probably just want unzip nginx cflare htop for deps? i think.

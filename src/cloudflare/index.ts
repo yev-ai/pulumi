@@ -1,4 +1,5 @@
 import type { PulumiMethod } from '@/.utils';
+import { asResource } from '@/.utils';
 import * as cloudflare from '@pulumi/cloudflare';
 import * as pulumi from '@pulumi/pulumi';
 
@@ -21,12 +22,7 @@ export const getRootCloudflareZone: PulumiMethod<
   { zoneId: Promise<string> }
 > = (name) => {
   const zone = cloudflare.getZone({ name });
-  const outputZone = {
-    ...zone,
-    urn: null as unknown as pulumi.Output<string>,
-    getProvider: () => null as unknown as pulumi.ProviderResource,
-  };
-  return { finishedOn: { ...outputZone }, result: { ...outputZone }, zoneId: zone.then((zone) => zone.zoneId) };
+  return { finishedOn: asResource(zone), result: asResource(zone), zoneId: zone.then((zone) => zone.zoneId) };
 };
 
 export * from './ZeroTrustTunnelRoute';

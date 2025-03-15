@@ -1,4 +1,4 @@
-import { Resource as PulumiResource } from '@pulumi/pulumi';
+import { Output, ProviderResource, Resource as PulumiResource } from '@pulumi/pulumi';
 
 /**
  * Creates a dependency object for Pulumi resources if dependencies are provided.
@@ -44,3 +44,22 @@ export type PulumiMethod<
 } & (Output extends Record<string, never> ? {} : Output);
 
 export type Resource = PulumiResource;
+
+/**
+ * Wraps a non-Pulumi resource (like API results) to make it compatible with the Pulumi Resource interface.
+ * This utility adds the required Pulumi Resource properties that might be missing from data sources.
+ *
+ * @param source - Any object that needs to be compatible with Pulumi Resource interface
+ * @returns The source object enhanced with Pulumi Resource compatibility
+ *
+ * @example
+ * ```typescript
+ * const zone = cloudflare.getZone({ name });
+ * const compatibleZone = resourceWrapper(zone);
+ * ```
+ */
+export const asResource = <T>(source: T): T & PulumiResource => ({
+  ...source,
+  urn: null as unknown as Output<string>,
+  getProvider: () => null as unknown as ProviderResource,
+});
