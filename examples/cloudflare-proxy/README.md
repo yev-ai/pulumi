@@ -69,7 +69,7 @@ This is a minimally viable infra example. You'll get 3-10ms latency, 1000+RPS, a
 
 It is also designed to not make you blow your 401K if you forget to turn an EC2 instance off.
 
-Total cost in this example's configuration: $25/mo.
+Total cost in this example's configuration: $25/mo for AWS, GCP and Azure + $20/mo for Cloudflare Pro.
 
 ## Execution
 
